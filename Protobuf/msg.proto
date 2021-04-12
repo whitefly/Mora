@@ -1,0 +1,11 @@
+syntax = "proto3";  // 指定使用 proto3 语法
+
+
+option java_package = "mora.common.entity";
+option java_outer_classname = "TransferData";
+
+message TransferDataProtoc{
+  string  code = 1;
+  string info = 2;
+  string  data = 3;
+}
