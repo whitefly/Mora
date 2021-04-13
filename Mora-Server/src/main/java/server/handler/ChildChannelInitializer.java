@@ -12,7 +12,7 @@ public class ChildChannelInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel ch) {
         addProtobufPipeLine(ch);
-        ch.pipeline().addLast(new SimpleHandler());
+        ch.pipeline().addLast(new ServerHandler());
     }
 
     private void addProtobufPipeLine(SocketChannel ch) {

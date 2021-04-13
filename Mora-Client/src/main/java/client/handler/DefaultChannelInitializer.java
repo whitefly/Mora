@@ -13,7 +13,7 @@ public class DefaultChannelInitializer extends ChannelInitializer<SocketChannel>
     @Override
     protected void initChannel(SocketChannel ch) {
         addProtobufPipeLine(ch);
-        ch.pipeline().addLast(new SimpleHandler());
+        ch.pipeline().addLast(new ClientHandler());
     }
 
     private void addProtobufPipeLine(SocketChannel ch) {
@@ -23,6 +23,6 @@ public class DefaultChannelInitializer extends ChannelInitializer<SocketChannel>
                 .addLast(new ProtobufDecoder(TransferData.TransferDataProtoc.getDefaultInstance()))
                 .addLast(new ProtobufVarint32LengthFieldPrepender())
                 .addLast(new ProtobufEncoder())
-                .addLast(new SimpleHandler());
+                .addLast(new ClientHandler());
     }
 }
